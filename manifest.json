@@ -2,6 +2,10 @@
 	"manifest_version": 2,
 	"name": "Good Filter",
 	"version": "0.1",
+	"web_accessible_resources": [
+		"test.json",
+		"dictionary.json"
+	],
 	"content_scripts": [
 		{
 		"matches": [
