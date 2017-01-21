@@ -11,7 +11,7 @@
 		}
 	],
 	"browser_action": {
-		// "default_icon": "icon.png",
+		"default_icon": "safespace.png",
 		"default_popup": "gui.html"
 	}
 }
