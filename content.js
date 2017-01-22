@@ -1,17 +1,22 @@
+//console log to make sure the json file is being accessed
+console.log(chrome.extension.getURL('dictionary.json'));
 
-console.log(chrome.extension.getURL('test.json'));
+function replaceText(word, new_word) {
+  var word = new RegExp(word, 'g');
+  document.body.innerHTML = document.body.innerHTML.replace(word, new_word);
+}
 
 $(document).ready(function() {
 
-    // setTimeout(function(){
-    //     document.body.innerHTML = document.body.innerHTML.replace(/hello/g, 'hi');
-    // }, 500);
+  setTimeout(function() {
+    $.getJSON(chrome.extension.getURL('test.json'), function(data) {
 
-    $.getJSON(chrome.extension.getURL('dictionary.json'), function(data) {
-       $.each (data, function (key, val) {
-        var replaced = $("body").html().replace(new RegExp(key.toString(), "g"), val.toString());
-        $("body").html(replaced);
-       });
+      $.each( data, function( key, val ) {
+          replaceText(key, val);
+      });
+
     });
+  }, 1000);
+
 });
 
